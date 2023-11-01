@@ -1,0 +1,15 @@
+[
+{
+"id": "245",
+"title": "Some book1",
+"cost": 30,
+"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Americanstudbookvolume2open.jpg/1024px-Americanstudbookvolume2open.jpg"
+},
+{
+    "id": "246",
+    "title": "Some book2",
+    "cost": 45,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Americanstudbookvolume2open.jpg/1024px-Americanstudbookvolume2open.jpg"
+}
+
+]

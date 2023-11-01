@@ -1,0 +1,25 @@
+.column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  
+  .label {
+    width: 290px; /* Задайте ширину по вашему усмотрению */
+    font-weight: 600;
+  }
+  
+  .info {
+    margin-left: 32px; /* Расстояние между заголовком и информацией */
+  }
+
+  .footer-text {
+    position: fixed;
+    bottom: 52px; /* Расстояние от нижней части страницы */
+    margin-bottom: 0; /* Задайте нужное значение */
+  }
