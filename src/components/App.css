@@ -140,6 +140,12 @@ text-align: center;
 text-decoration: none;
 display: inline-block;
 font-size: 24px;
+transition: all 0.3s ease; 
+}
+
+.btn:active {
+  transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+  background-color: #5a351b; /* Изменение цвета фона при нажатии */
 }
 
 .form-block{

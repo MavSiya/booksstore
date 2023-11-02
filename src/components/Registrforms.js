@@ -19,7 +19,7 @@ function Registrforms(props) {
         try {
           const response = await sendUserData(formData);
           if (response.status === 200) {
-           
+           console.log('Registration successfully');
           }
         } catch (error) {
           console.error('Registration failed', error);
@@ -30,15 +30,6 @@ function Registrforms(props) {
         const { name, value } = event.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
       };
-      const handleNameChange = (event) => {
-        const { value } = event.target;
-        setFormData((prevData) => ({ ...prevData, firstname: value }));
-      };
-      
-      const handleLastNameChange = (event) => {
-        const { value } = event.target;
-        setFormData((prevData) => ({ ...prevData, lastname: value }));
-      };
      
     return (
 <>
@@ -47,21 +38,21 @@ function Registrforms(props) {
     <div className="form-container">
     <div className="form-component">
     <div className="form-block">
-        <label htmlFor="name">Ім'я:</label>
-        <input className="input-reg" type="text" id="name" name="name" placeholder="Введіть ваше ім'я"  value={formData.firstname}
-        onChange={handleNameChange}/>
+        <label htmlFor="firstname">Ім'я:</label>
+        <input className="input-reg" type="text" id="firstname" name="firstname" placeholder="Введіть ваше ім'я"  value={formData.firstname}
+        onChange={handleInputChange}/>
     </div>
     <div className="form-block">
-        <label htmlFor="name">Прізвище:</label>
-        <input className="input-reg" type="text" id="surname" name="surname" placeholder="Введіть ваше прізвище" value={formData.lastname}
-        onChange={handleLastNameChange}/>
+        <label htmlFor="lastname">Прізвище:</label>
+        <input className="input-reg" type="text" id="lastname" name="lastname" placeholder="Введіть ваше прізвище" value={formData.lastname}
+        onChange={handleInputChange}/>
     </div>
     <div className="form-block">
   <label htmlFor="role">Выберите вашу роль:</label>
   <select className="input-reg" id="role" name="role"  value={formData.role}
         onChange={handleInputChange}>
-    <option value="seller">Продавец</option>
-    <option value="buyer">Покупатель</option>
+    <option value="SELLER">Продавец</option>
+    <option value="CUSTOMER">Покупатель</option>
   </select>
 </div>
 </div>
