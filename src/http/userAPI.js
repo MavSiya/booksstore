@@ -11,3 +11,22 @@ import axios from "axios";
       throw error; // Обработка ошибок, если они возникли при отправке данных на сервер
     }
   };
+
+  export const checkUserAuth = async (userData) => {
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/auth/login', userData);
+      return response;
+    } catch (error) {
+      console.error('Ошибка при отправке данных на сервер:', error);
+      throw error; // Обработка ошибок, если они возникли при отправке данных на сервер
+    }
+  };
+
+  export const checkTokenValidity = async (token) => {
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/auth/checkToken', { token });
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  };

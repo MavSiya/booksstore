@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-
-import axios from 'axios';
+import Modal from './littlePiece/Modal';
 import { sendUserData } from '../http/userAPI';
 
 function Registrforms(props) {
   
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
     const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
@@ -19,6 +24,7 @@ function Registrforms(props) {
         try {
           const response = await sendUserData(formData);
           if (response.status === 200) {
+            setShowModal(true);
            console.log('Registration successfully');
           }
         } catch (error) {
@@ -72,7 +78,12 @@ function Registrforms(props) {
     </div>
     <input className='btn' type="submit" value="Зареєструватись"></input>
 </form>
-
+{showModal && (
+        <Modal onClose={handleCloseModal}>
+          <h3> Дякуємо за реєстрацію!</h3>
+          <p>Підтвердьте реєстрацію на пошті!</p>
+        </Modal>
+      )}
 </>
 )
 }
