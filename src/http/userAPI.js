@@ -14,7 +14,7 @@ import axios from "axios";
 
   export const checkUserAuth = async (userData) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/auth/login', userData);
+      const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', userData);
       return response;
     } catch (error) {
       console.error('Ошибка при отправке данных на сервер:', error);

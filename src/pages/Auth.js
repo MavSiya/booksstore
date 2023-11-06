@@ -12,24 +12,39 @@ export default function Auth() {
     password: ''
   });
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await checkUserAuth(formData);
-      if (response.status === 200) {
-        const token = response.data.token;
-        localStorage.setItem('token', token);// сохранение токена в локальном хранилище
-        navigate(CATALOG_ROUTE);
-      }
-    } catch (error) {
-      console.error('Authentication failed', error);
-    }
-  };
-  
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token');
+
+        if (token) {
+            // Save the token to localStorage
+            localStorage.setItem('token', token);
+
+            // Redirect to your main authenticated page or perform any other necessary actions
+            // For example, you can use React Router to navigate to the authenticated page.
+            // Replace '/auth' with your actual route.
+            navigate(CATALOG_ROUTE);
+        }
+    }, []);
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await checkUserAuth(formData);
+            if (response.status === 200) {
+                const token = response.data.token;
+                localStorage.setItem('token', token);// сохранение токена в локальном хранилище
+                navigate(CATALOG_ROUTE);
+            }
+        } catch (error) {
+            console.error('Authentication failed', error);
+        }
+    };
+
+    const handleInputChange = (event) => {
+        const {name, value} = event.target;
+        setFormData((prevData) => ({...prevData, [name]: value}));
+    };
 
   return (
     <>
