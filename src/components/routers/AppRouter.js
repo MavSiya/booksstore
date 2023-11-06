@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 
 const  AppRouter = () => {
     const [isAuth, setIsAuth] = useState(false);
-    const [userRole, setUserRole] = useState(null);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -15,8 +14,6 @@ const  AppRouter = () => {
             checkTokenValidity(token)
                 .then((response) => {
                     if (response.status === 200) {
-                        const { role } = response.data; // Предположим, что данные о роли пользователя возвращаются с сервера
-                        setUserRole(role);
                         setIsAuth(true);
                     } else {
                         setIsAuth(false);
@@ -31,15 +28,12 @@ const  AppRouter = () => {
 
     return (
         <Routes>
-            {isAuth === true && authRoutes.map(({ path, Component, role }) => {
-                    if ((role === 'SELLER' && userRole === 'SELLER') || (role === 'BUYER' && userRole === 'BUYER')) {
-                        return <Route key={path} path={path} element={<Component />} exact />;
-                    }
-                    return null;})
-            }
-            {publicRoutes.map(({path, Component}) =>
-                <Route key={path} path={path} element={<Component />} exact/>
-            )}
+            {isAuth === true && authRoutes.map(({ path, Component }) => (
+                <Route key={path} path={path} element={<Component />} exact />
+            ))}
+            {publicRoutes.map(({ path, Component }) => (
+                <Route key={path} path={path} element={<Component />} exact />
+            ))}
         </Routes>
     );
 };

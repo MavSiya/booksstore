@@ -1,19 +1,14 @@
 import Auth from "../../pages/Auth"
 import Home from "../../pages/Home"
 import Registration from "../../pages/Registration"
-import { AUTH_ROUTE, CATALOG_ROUTE, PAGE_BUYER_ROUTE, REGISTRATION_ROUTE, PAGE_SELLER_ROUTE } from "../../utils/consts"
-import PageBuyer from "../../pages/PageBuyer"
-import PageSeller from "../../pages/PageSeller"
+import { AUTH_ROUTE, CATALOG_ROUTE, REGISTRATION_ROUTE, HOME_ROUTE} from "../../utils/consts"
+import Catalog from "../Catalog"
 
 export const authRoutes = [
 {
-path: PAGE_BUYER_ROUTE,
-Component: PageBuyer
-},
-{
-path: PAGE_SELLER_ROUTE,
-Component: PageSeller
- },
+path: HOME_ROUTE,
+Component: Home
+}
 ]
 
 export const publicRoutes =[
@@ -27,6 +22,6 @@ export const publicRoutes =[
          },
          {
             path: CATALOG_ROUTE,
-            Component: Home
+            Component: Catalog
             }
 ]

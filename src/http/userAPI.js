@@ -30,3 +30,24 @@ import axios from "axios";
       throw error;
     }
   };
+
+  export const extractRoleFromToken = async (token) => {
+    if (!token) {
+      return null; 
+    }
+  
+    try {
+      const tokenParts = token.split('.'); // Разделение токена на части
+      if (tokenParts.length < 2) {
+        throw new Error('Invalid token'); 
+      }
+  
+      const payload = JSON.parse(atob(tokenParts[1])); // Декодирование и разбор полезной нагрузки
+      const role = payload.role; // Извлечение информации о роли из полезной нагрузки
+  
+      return role; 
+    } catch (error) {
+      console.error('Error extracting role from token', error);
+      return null; 
+    }
+  }

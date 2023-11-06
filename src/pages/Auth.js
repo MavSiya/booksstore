@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { checkUserAuth } from '../http/userAPI';
 import { CATALOG_ROUTE} from '../utils/consts'; 
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
 
 
 export default function Auth() {
@@ -25,7 +26,7 @@ export default function Auth() {
             // Replace '/auth' with your actual route.
             navigate(CATALOG_ROUTE);
         }
-    }, []);
+    }, [navigate]);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
