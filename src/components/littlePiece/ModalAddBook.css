@@ -1,0 +1,139 @@
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .modal-container {
+    width: 1200px;
+    height: auto;
+    padding: 30px;
+    background-color: #EFEFF1;
+    overflow-y: hidden; /* Запрет прокрутки внутри модального окна */
+  }
+  
+  .modal-body {
+    width: 1000px;
+    max-height: 800px; /* Добавьте максимальную высоту для возможности прокрутки */
+    margin-left: 50px;
+
+  }
+  
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 50px; 
+    border-radius: 5px;
+  }
+  
+  .form-block-addbook {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .input-reg {
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 0px;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #151519;
+  }
+  
+  .input-reg:focus {
+    outline: none;
+    border-bottom: 1px solid #151519;
+  }
+  
+  label {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  textarea {
+    background-color: transparent;
+    font-size: 16px;
+    border: 1px solid #151519;
+    width: 100%;
+    height: 44px; 
+    resize: none; 
+  }
+  
+  .btn-primary {
+    gap: 12px;
+    border-radius: 10px;
+    color: #efeff1;
+    background-color: #814e25;
+    border: none;
+    padding: 32px 44px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .input-file-img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    background-color: #e8dad3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 20px;
+    background-image: url('../img/addphoto.png');
+    background-size: 98px,98px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+  }
+
+  .modal-footer{
+    display: flex;
+  justify-content: center;
+  }
+
+  .form-block-addbook.inputImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .form-block-addbook.inputImg label {
+    display: block;
+    
+    text-align: center;
+  }
+  
+  .form-block-addbook.inputImg input[type="file"] {
+    display: block;
+    display: none;
+    margin: 0 auto;
+  }

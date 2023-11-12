@@ -1,10 +1,12 @@
 import Footer from '../components/Footer';
-import Catalog from '../components/Catalog';
+import CatalogPiece from '../components/CatalogPiece';
+import BooksList from '../components/Books/BooksList';
 
 function Catalog(props) {
     return (
     <div className="wrapper">
-    <Catalog/>
+   <CatalogPiece/>
+    <BooksList />
     <Footer/>
     </div>
     );

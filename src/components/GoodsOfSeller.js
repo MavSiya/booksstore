@@ -1,23 +1,99 @@
 import React from 'react'
 import './Info.css';
-
+import { useState } from 'react';
+import Modal from './littlePiece/Modal';
+import './littlePiece/ModalAddBook.css';
+import BooksList from './Books/BooksList';
+import GoodsSeller from './littlePiece/GoodsSeller.css';
 
 export default function GoodsOfSeller() {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [image, setImage] = useState('');
+  const [genre, setGenre] = useState('');
+
+  const [showModal, setShowModal] = useState(false);
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleModal = () => {
+    setShowModal(true);
+  };
+
+  const handleSubmit = () => {
+    // Добавьте здесь логику отправки информации о книге на сервер
+    const bookInfo = { title, author, description, price, image };
+    console.log(bookInfo);
+    // Добавьте здесь логику для добавления книги на страницу продавца
+  };
   return (
     <>
 <h2> Наявний товар:</h2>
 <div className='container-product'> 
-<div className='edit-product'>
 <div className='block-of-cards'>
-    <div className='card'>Карточка</div>
-    <div className='card'>Карточка</div>
-    <div className='card'>Карточка</div>
+<BooksList />
      </div>
-     <p>Редагувати товар</p>
+     <div className='edit-product'>
+     <a className="link" onClick={handleModal}>
+     <span className="icon"><img src="/img/add.svg" alt="Aaa Icon" /></span>
+     Додати товар</a>
+     
+     <a className="link" >
+     <span className="icon"><img src="/img/edit.svg" alt="Edit Icon" /></span>
+     Редагувати товар
+     </a>
      </div>
-     <button className='btn'>Додати товар</button>
      </div>
-     <div className="footer-text">*Інформація про конвертування балів</div>
+  
+
+     {showModal && (
+        <Modal className="modal-backdrop" onClose={handleCloseModal}>
+          <div className='modal-container'>
+          <div className="form-block-addbook inputImg">
+              <label className='input-file-img'>
+            <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+            </label>
+            </div>
+
+            <div className="modal-body">
+            <div className="form-block-addbook">
+        <label htmlFor="lastname">Назва:</label>
+              <input type="text" className="input-reg" placeholder="Введіть назву" value={title} onChange={(e) => setTitle(e.target.value)} />
+              </div>
+              
+              <div className="form-block-addbook">
+        <label htmlFor="lastname">Автор:</label>
+              <input type="text" className="input-reg" placeholder="Введіть автора" value={author} onChange={(e) => setAuthor(e.target.value)} />
+              </div>
+
+              <div className="form-block-addbook">
+  <label htmlFor="genre">Виберіть жанр:</label>
+  <select className="input-reg" id="genre" name="genre" value={genre} onChange={(e) => setGenre(e.target.value)}>
+    <option value="detective">Детектив</option>
+    <option value="science">Наука</option>
+  </select>
+</div>
+
+              <div className="form-block-addbook">
+        <label htmlFor="lastname">Опис:</label>
+              <textarea className="input-reg" placeholder="Введіть опис" value={description} onChange={(e) => setDescription(e.target.value)} />
+              </div>
+
+              <div className="form-block-addbook">
+        <label htmlFor="lastname">Ціна:</label>
+              <input type="text" className="input-reg" placeholder="Вкажіть ціну" value={price} onChange={(e) => setPrice(e.target.value)} />
+              </div>
+            </div>
+
+            <div className="modal-footer">
+              <button type="button" className="btn btn-primary" onClick={handleSubmit}> Додати книгу </button>
+            </div>
+            </div>
+          </Modal>
+          )}
     </>
-  )
+  );
 }

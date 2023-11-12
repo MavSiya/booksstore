@@ -7,7 +7,8 @@ import InfoBuyer from '../components/InfoBuyer';
 
 export default function Home() {
     const token = localStorage.getItem('token');
-    const role = extractRoleFromToken(token);
+    const role = 'SELLER'; // НЕ ЗАБУДЬ ИЗМЕНИТЬ НА ТО ЧТО ВНИЗУ
+    //const role = extractRoleFromToken(token);
   return (
     <>       
     <h1>Особистий кабінет</h1>

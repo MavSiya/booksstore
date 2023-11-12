@@ -2,7 +2,7 @@ import Auth from "../../pages/Auth"
 import Home from "../../pages/Home"
 import Registration from "../../pages/Registration"
 import { AUTH_ROUTE, CATALOG_ROUTE, REGISTRATION_ROUTE, HOME_ROUTE} from "../../utils/consts"
-import Catalog from "../Catalog"
+import Catalog from "../../pages/Catalog"
 
 export const authRoutes = [
 {

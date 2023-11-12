@@ -1,0 +1,29 @@
+[
+    {
+       "articul": 5648,
+       "title": "Пригоди живчика і фантастичних звірів",
+       "author":"Роберт Стівенсон",
+       "cost": 30,
+       "image": "https://nebobookshop.com.ua/cloud/files/uploads/books/skarbiv_ukr.jpg",
+       "genre": "advanture",
+       "seller": "Уіл Сміт"
+    },
+    {
+        "articul": 5345,
+       "title": "Острів скарбів",
+       "author":"Роберт Стівенсон",
+       "cost": 30,
+       "image": "https://nebobookshop.com.ua/cloud/files/uploads/books/skarbiv_ukr.jpg",
+       "genre": "advanture",
+       "seller": "Уіл Сміт"
+    },
+    {
+        "articul": 5644,
+        "title": "Пригоди живчика і фантастичних звірів",
+        "author":"Роберт Стівенсон",
+        "cost": 30,
+        "image": "https://nebobookshop.com.ua/cloud/files/uploads/books/skarbiv_ukr.jpg",
+        "genre": "advanture",
+        "seller": "Уіл Сміт"
+     }
+]

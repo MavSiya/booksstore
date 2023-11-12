@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Catalog() {
+export default function CatalogPiece() {
   return (
     <div className='catalog-container'>
         <h1>Каталог</h1>

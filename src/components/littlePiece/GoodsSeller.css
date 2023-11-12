@@ -1,0 +1,21 @@
+.link {
+    display: block;
+    margin-bottom: 4px;
+    text-decoration: none;
+    color: #151519;
+    transition: color 0.3s ease; 
+  }
+  
+  .link:hover {
+    color: #814E25;
+    cursor: pointer;
+  }
+
+  .edit-product{
+    margin-top: 24px;
+  }
+
+  .icon {
+    margin-right: 8px; /* Расстояние между текстом и иконкой */
+  }
+  

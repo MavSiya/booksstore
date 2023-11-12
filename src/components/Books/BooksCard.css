@@ -1,0 +1,131 @@
+.card{
+    width: 300px;
+    height: auto;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+border: 1px solid;
+border-color: #151519;
+}
+
+
+.image img{
+    background: cover no-repeat;
+    max-width: 100%; /* Set the maximum width to 100% of the container */
+    max-height: 100%; /* Set the maximum height to 100% of the container */
+    height: auto; /* Maintain the aspect ratio of the image */
+    display: block; /* Remove any extra spacing below the image */
+    margin: 0 auto; 
+}
+
+.image{
+    width: 300px;
+height: 190px;
+margin-bottom: 32px;
+}
+
+.block-info, .info-sale{
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.info-book p{
+    margin-bottom: 8px;
+    width: 252px;
+}
+
+.info-sale{
+gap: 16px;
+}
+
+.title{
+    color:#151519;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    white-space: nowrap; /* Предотвращение переноса текста на новую строку */
+    overflow: hidden; /* Обрезка текста, который не помещается в блоке */
+    text-overflow: ellipsis;
+    position: relative;
+}
+
+.title:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #151519;
+    padding: 8px;
+    white-space: normal; 
+    z-index: 1; 
+}
+
+
+.cost{
+    color:#151519;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 30px;
+}
+
+.seller{
+    margin-top: 12px;
+}
+
+.author{
+    color:#151519;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.genre, .seller{
+    color:#151519;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.add-to-cart{
+    display: flex;
+padding: 12px 16px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-color: none;
+border-radius: 5px;
+background: #814E25;
+cursor: pointer;
+}
+
+.cost-to-basket{
+    display: flex;
+width: 300px;
+align-items: center;
+justify-content: space-between;
+}
+
+.books-field{
+display: flex;
+gap: 52px;
+align-items: stretch;
+flex-wrap: wrap;
+}
+
+.add-to-card-icon{
+    display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: url('/public/img/basket_btn.png') center/cover;
+}
