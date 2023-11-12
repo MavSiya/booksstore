@@ -1,53 +1,70 @@
 import axios from "axios";
 
-  export const sendUserData = async (userData) => {
+export const sendUserData = async (userData) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/auth/register', userData);
-      // const token = response.data.token;
-      // localStorage.setItem('token', token);// Сохранение токена в локальном хранилище браузера
-      return response; // Возвращаем результат, чтобы его можно было обработать в вызывающем коде
+        const response = await axios.post('http://localhost:8080/api/v1/auth/register', userData);
+        // const token = response.data.token;
+        // localStorage.setItem('token', token);// Сохранение токена в локальном хранилище браузера
+        return response; // Возвращаем результат, чтобы его можно было обработать в вызывающем коде
     } catch (error) {
-      console.error('Ошибка при отправке данных на сервер:', error);
-      throw error; // Обработка ошибок, если они возникли при отправке данных на сервер
+        console.error('Ошибка при отправке данных на сервер:', error);
+        throw error; // Обработка ошибок, если они возникли при отправке данных на сервер
     }
-  };
+};
 
-  export const checkUserAuth = async (userData) => {
+export const checkUserAuth = async (userData) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', userData);
-      return response;
+        const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', userData);
+        return response;
     } catch (error) {
-      console.error('Ошибка при отправке данных на сервер:', error);
-      throw error; // Обработка ошибок, если они возникли при отправке данных на сервер
+        console.error('Ошибка при отправке данных на сервер:', error);
+        throw error; // Обработка ошибок, если они возникли при отправке данных на сервер
     }
-  };
+};
 
-  export const checkTokenValidity = async (token) => {
+export const checkTokenValidity = async (token) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/auth/checkToken', { token });
-      return response;
+        const response = await axios.post('http://localhost:8080/api/v1/auth/checkToken', {token});
+        return response;
     } catch (error) {
-      throw error;
+        throw error;
     }
-  };
+};
 
-  export const extractRoleFromToken = async (token) => {
+export const extractRoleFromToken = async (token) => {
     if (!token) {
-      return null; 
+        return null;
     }
-  
+
     try {
-      const tokenParts = token.split('.'); // Разделение токена на части
-      if (tokenParts.length < 2) {
-        throw new Error('Invalid token'); 
-      }
-  
-      const payload = JSON.parse(atob(tokenParts[1])); // Декодирование и разбор полезной нагрузки
-      const role = payload.role; // Извлечение информации о роли из полезной нагрузки
-  
-      return role; 
+        const tokenParts = token.split('.'); // Разделение токена на части
+        if (tokenParts.length < 2) {
+            throw new Error('Invalid token');
+        }
+
+        const payload = JSON.parse(atob(tokenParts[1])); // Декодирование и разбор полезной нагрузки
+        // Извлечение информации о роли из полезной нагрузки
+        return payload.role;
     } catch (error) {
-      console.error('Error extracting role from token', error);
-      return null; 
+        console.error('Error extracting role from token', error);
+        return null;
     }
-  }
+}
+
+export const getCurrentUserInfo = async () => {
+    let token = localStorage.getItem('token');
+    if (token == null)
+        return null;
+
+    try {
+        const response = axios.get('http://localhost:8080/api/v1/me', {
+            headers: {
+                "Authorization": "Bearer " + token,
+                "Content-Type": "application/json",
+            }
+        });
+        return response;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
