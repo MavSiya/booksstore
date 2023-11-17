@@ -6,7 +6,8 @@
        "cost": 30,
        "image": "https://nebobookshop.com.ua/cloud/files/uploads/books/skarbiv_ukr.jpg",
        "genre": "advanture",
-       "seller": "Уіл Сміт"
+       "seller": "Уіл Сміт",
+       "description": "Якийсь опис Якийсь опис Якийсь опис"
     },
     {
         "articul": 5345,
@@ -15,7 +16,8 @@
        "cost": 30,
        "image": "https://nebobookshop.com.ua/cloud/files/uploads/books/skarbiv_ukr.jpg",
        "genre": "advanture",
-       "seller": "Уіл Сміт"
+       "seller": "Уіл Сміт",
+       "description": "Якийсь опис Якийсь опис Якийсь опис"
     },
     {
         "articul": 5644,
@@ -24,6 +26,7 @@
         "cost": 30,
         "image": "https://nebobookshop.com.ua/cloud/files/uploads/books/skarbiv_ukr.jpg",
         "genre": "advanture",
-        "seller": "Уіл Сміт"
+        "seller": "Уіл Сміт",
+        "description": "Якийсь опис Якийсь опис Якийсь опис"
      }
 ]

@@ -56,7 +56,7 @@ header ul.nav li{
   transition: opacity 500ms ease;
 }
 
-header ul.nav li:hover {
+header ul.nav .header-li:hover {
   opacity: 0.5;
 }
 

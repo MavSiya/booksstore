@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .block-img-seller,
+  .block-text-with-btn {
+    margin-right: 76px; 
+  }
+
+.block-text-with-btn {
+    text-align: left;
+  }
+
+  .btn-field{
+    margin-top: 40px;
+  }
+  
+  .block-text {
+    margin-right: 32px; 
+    width: 1150px;
+  }
+  
+  .info-field {
+    margin-bottom: 32px; 
+    display: flex;
+    align-items: center; 
+  }
+  
+  .h33 {
+    width: 110px ;
+    margin-right: 32px; 
+  }
+  
+  .info-field h3,
+  .info-field p {
+    margin-right: 40px;
+  }
+  .info-field p {
+    word-wrap: break-word; 
+  white-space: normal; 
+}
+  
+  
+  
+  .block-img-seller {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .block-img-seller img {
+    max-width: 100%;
+  }
+
+  .block-img-seller p {
+margin-top: 24px;
+  }
+
+  .image-detail{
+    width: 390px;
+ }
+  
+ .add-to-card-icon{
+  display: inline-block;
+width: 26px;
+height: 26px;
+background: url('/public/img/basket_btn.png') center/cover;
+}
+
+.btn-field .add-to-cart{
+color: #EFEFF1;
+font-size: 32px;
+padding: 32px 32px;
+}
+ 

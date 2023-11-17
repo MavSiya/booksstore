@@ -14,7 +14,7 @@ export default function BooksList() {
     <>
     <div className='books-field'>
        {books.map(item => <Books title={item.title} author={item.author} genre={item.genre} cost={item.cost}
-      image={item.image} seller={item.seller} articul={item.seller} key={item.key} />)} 
+      image={item.image} seller={item.seller} articul={item.articul} key={item.key} />)} 
     </div>
     </>
   )

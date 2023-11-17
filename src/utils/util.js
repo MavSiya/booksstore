@@ -1,0 +1,1 @@
+export const calcTotalPrice = items => items.reduce((acc, book)=> acc+=book.cost ,0);

@@ -1,0 +1,30 @@
+
+.cart-block__basket {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .basketicon {
+    max-width: 100%;
+  }
+  
+  .items-in-cart {
+    position: absolute;
+    top: 15%;
+    right: 0;
+    background-color: tomato;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+  }
+
+  .cart-block__basket img:hover{
+    opacity: 0.5;
+}

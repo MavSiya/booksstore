@@ -1,0 +1,34 @@
+.h2-sellerpage{
+    margin-bottom: 30px;
+}
+
+
+.block-phone {
+    margin-top: 32px;
+    display: flex;
+    align-items: center; 
+  }
+  
+  .btn-phone {
+    margin-right: 10px;
+  }
+
+.btn-phone{
+    display: flex;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-color: none;
+    border-radius: 5px;
+    background: #814E25;
+    cursor: pointer;
+}
+
+.phone-icon{
+    display: inline-block;
+  width: 32px;
+  height: 30px;
+  background: url('./phone.svg') center/cover;
+}
+

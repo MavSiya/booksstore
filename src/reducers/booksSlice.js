@@ -1,19 +1,20 @@
 import React from 'react'
 import { createSlice } from '@reduxjs/toolkit';
-import booksArr from '../containers/books.json';
+import booksArr from '../components/Books/books.json';
 
 export const booksSlice = createSlice({
 name: "books",
 initialState : {
     books : booksArr
 },
-reducer : {
-
+reducers : {
+    setCurrentBook: (state, action) => {
+state.books = action.payload;
+    }
 }
 });
 
-export const {} = booksSlice.actions;
+export const { setCurrentBook } = booksSlice.actions;
 export const selectBooks = state => state.books.books;
 export default booksSlice.reducer;
-
 
