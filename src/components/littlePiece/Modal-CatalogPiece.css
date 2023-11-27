@@ -1,0 +1,56 @@
+.genre-filter-modal {
+    text-align: left;
+    margin-left: 36px;
+    margin-right: 36px;
+  }
+  
+  .genre-filter-modal h3 {
+    text-align: center;
+    font-size: 30px; 
+    margin-bottom: 24px; 
+  }
+  
+  .genre-filter-modal label {
+    display: block;
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  
+  .genre-filter-modal button {
+    margin: 10px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .genre-filter-modal input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px; 
+    border: 2px solid #151519;
+    border-radius: 50%; 
+    outline: none;
+    margin-right: 4px; 
+  }
+  
+  .genre-filter-modal input[type="radio"]:checked {
+    background-color: #814E25; 
+  }
+
+  .books-field{
+    margin-top: 16px;
+  }
+
+  .catalog-piece-showAll {
+    text-decoration: none; 
+    color: #151519; 
+    transition: color 0.3s ease; 
+    cursor: pointer; 
+  }
+  
+  .catalog-piece-showAll:hover {
+    text-decoration: underline; 
+    color: #814e25;
+  }

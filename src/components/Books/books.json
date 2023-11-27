@@ -15,7 +15,7 @@
        "author":"Роберт Стівенсон",
        "cost": 30,
        "image": "https://nebobookshop.com.ua/cloud/files/uploads/books/skarbiv_ukr.jpg",
-       "genre": "advanture",
+       "genre": "fantasy",
        "seller": "Уіл Сміт",
        "description": "Якийсь опис Якийсь опис Якийсь опис"
     },
@@ -28,5 +28,15 @@
         "genre": "advanture",
         "seller": "Уіл Сміт",
         "description": "Якийсь опис Якийсь опис Якийсь опис"
-     }
+     },
+     {
+         "articul": 56449,
+         "title": "Пригоди живчика і фантастичних звірів",
+         "author":"Роберт Стівенсон",
+         "cost": 30,
+         "image": "https://nebobookshop.com.ua/cloud/files/uploads/books/skarbiv_ukr.jpg",
+         "genre": "advanture",
+         "seller": "Емма Уотсон",
+         "description": "Якийсь опис Якийсь опис Якийсь опис"
+      }
 ]

@@ -1,0 +1,15 @@
+.favorites-list{
+    position: absolute;
+    top: 107px;
+    left: 1250px;
+    background-color: #E8DAD3;
+    width: 500px;
+    padding: 10px 20px;
+    z-index: 2;
+    border-radius: 15px;
+}
+
+.favorites-list:hover{
+    opacity: 1;
+}
+

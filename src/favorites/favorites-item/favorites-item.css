@@ -1,0 +1,27 @@
+.favorites-item{
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column; /* Расположение элементов в столбец */
+    align-items: flex-start;
+    transition: background-color 0.3s ease; /* добавляем плавный переход для изменения цвета фона */
+}
+
+.favorites-item:hover .favorites-item-title,
+.favorites-item:hover .favorites-item-author {
+    opacity: 0.7;
+}
+
+.favorites-item-title {
+    font-size: 20px; 
+    margin-bottom: 5px;
+    font-weight: bold;
+    opacity: 1;
+  }
+  
+  .favorites-item-author {
+    font-size: 14px; 
+    opacity: 1;
+  }

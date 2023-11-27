@@ -1,0 +1,5 @@
+.favorites-block{
+    display: flex;
+    align-items: center;
+    position: relative;
+}

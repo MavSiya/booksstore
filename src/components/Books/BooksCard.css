@@ -52,21 +52,8 @@ gap: 16px;
     white-space: nowrap; /* Предотвращение переноса текста на новую строку */
     overflow: hidden; /* Обрезка текста, который не помещается в блоке */
     text-overflow: ellipsis;
-    position: relative;
 }
 
-.title:hover::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: 100%; 
-    left: 50%; 
-    transform: translateX(-50%);
-    background-color: #fff;
-    border: 1px solid #151519;
-    padding: 8px;
-    white-space: normal; 
-    z-index: 1; 
-}
 
 
 .cost{
@@ -129,3 +116,13 @@ flex-wrap: wrap;
   height: 26px;
   background: url('/public/img/basket_btn.png') center/cover;
 }
+
+.add-to-favorites{
+    border-style: none;
+}
+
+
+.add-to-block {
+    display: flex;
+    gap: 24px; /* Устанавливаем отступ между кнопками */
+  }

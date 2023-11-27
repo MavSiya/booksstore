@@ -6,7 +6,6 @@ function Catalog(props) {
     return (
     <div className="wrapper">
    <CatalogPiece/>
-    <BooksList />
     <Footer/>
     </div>
     );
