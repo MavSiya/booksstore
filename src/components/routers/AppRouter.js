@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 const  AppRouter = () => {
-    const [isAuth, setIsAuth] = useState(true); // ПОМЕНЯЙ НА ФОЛЗ!!!!
+    const [isAuth, setIsAuth] = useState(false); // ПОМЕНЯЙ НА ФОЛЗ!!!!
 
     useEffect(() => {
         const token = localStorage.getItem('token');

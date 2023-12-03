@@ -15,15 +15,17 @@ function Books(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const items = useSelector(state => state.cart.itemsInCart);
-  const isItemInCart = useSelector(state => state.cart.itemsInCart.some(items => items.articul === props.articul));
+  const isItemInCart = useSelector(state => state.cart.itemsInCart.some(items => items.id === props.id));
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const imageUrl = `data:image/png;base64,${props.image}`;
+
 
 
   const handleClick = (e) => {
     e.stopPropagation();
     if (isItemInCart) {
-      dispatch(deleteItemFromCart(props.articul));
+      dispatch(deleteItemFromCart(props.id));
     } else {
       dispatch(setItemInCart(props));
     }
@@ -31,37 +33,22 @@ function Books(props) {
 
   const handlerGoToInfo = () => {
     dispatch(setCurrentBook(props));
-    navigate(`/${props.articul}`);
+    navigate(`/${props.id}`);
   };
 
-  const isItemInFavorites = useSelector(state => state.favorites.itemsInFavorites.some(item => item.articul === props.articul));
+  const isItemInFavorites = useSelector(state => state.favorites.itemsInFavorites.some(item => item.id === props.id));
 
   const handleFavoritesClick = (e) => {
     e.stopPropagation();
     if (isItemInFavorites) {
-      dispatch(deleteItemFromFavorites(props.articul));
+      dispatch(deleteItemFromFavorites(props));
     } else {
       dispatch(setItemInFavorites(props));
     }
   };
 
-
-  //для редактирования книг
-  /*
-    const [user, setUser] = React.useState([]);
-  
-      useEffect(() => {
-          getCurrentUserInfo()
-              .then((data) => {
-                  setUser(data.data);
-              })
-              .catch((error) => {
-                  console.error('Error:', error);
-              });
-      }, []);*/
-
   const role = 'SELLER'; // поставить нужный код
-  const isSeller = true; //надо поменять 
+  const isSeller = true; //надо поменять
 
   const isEditModalOpen = useSelector((state) => state.modalAdd.isEditModalOpen);
   const handleEditClick = (e) => {
@@ -69,13 +56,14 @@ function Books(props) {
     e.preventDefault();
     dispatch(openEditModal(props));
     setIsModalOpen(true);
+
   };
 
   return (<>
     <div className='card' onClick={handlerGoToInfo}>
       <div className="books-block">
         <div className="image">
-          <img src={props.image} alt="" />
+          <img src={imageUrl} alt="" />
         </div>
         <div className="block-info">
           <div className="info-book">
@@ -88,7 +76,7 @@ function Books(props) {
             <div className="cost-to-basket">
               <p className="cost">{props.cost} грн</p>
               <div className='add-to-block'>
-                <button className="add-to-favorites" data-key={props.articul} onClick={handleFavoritesClick}>
+                <button className="add-to-favorites" data-key={props.id} onClick={handleFavoritesClick}>
                   {isItemInFavorites ? <img src="./img/heartClicked.svg" alt="Додано в збережені" /> : <img src="./img/heart.svg" alt="В збережені" />}
                 </button>
 
@@ -97,7 +85,7 @@ function Books(props) {
                     <img src="./img/edit.svg" alt="Редагувати" />
                   </button>
                 ) : (
-                  <button className="add-to-cart" data-key={props.articul} onClick={handleClick}>
+                  <button className="add-to-cart" data-key={props.id} onClick={handleClick}>
                     {isItemInCart ? <img src="./img/delete-line.svg" alt="Удалить" /> : <img src="./img/basketicon.svg" alt="В корзину" />}
                   </button>)}
                 {isModalOpen && (

@@ -1,11 +1,12 @@
 import React from 'react'
 import { createSlice } from '@reduxjs/toolkit';
-import booksArr from '../components/Books/books.json';
+import {getAllBooks} from "../http/userAPI";
+// import booksArr from '../components/Books/books.json';
 
 export const booksSlice = createSlice({
 name: "books",
 initialState : {
-    books : booksArr,
+    books : getAllBooks(),
 },
 reducers : {
     setCurrentBook: (state, action) => {

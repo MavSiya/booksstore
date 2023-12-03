@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import Modal from './Modal';
 import { closeEditModal, selectBookForEdit } from '../../reducers/modalAddReducer';
 import './GoodsSeller.css';
+import {editBook} from "../../http/userAPI";
 
 const ModalEditBook = ({ onClose, isEdit }) => {
   const dispatch = useDispatch();
   const bookForEdit = useSelector(selectBookForEdit);
 
   // Используйте состояния для хранения данных о книге
+  const [id, setId] = useState(''); // Для редактирования книги
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [genre, setGenre] = useState('');
@@ -18,18 +20,34 @@ const ModalEditBook = ({ onClose, isEdit }) => {
 
   useEffect(() => {
     if (isEdit && bookForEdit) {
+      setId(bookForEdit.id);
       setTitle(bookForEdit.title);
       setAuthor(bookForEdit.author);
       setGenre(bookForEdit.genre);
       setDescription(bookForEdit.description);
-      setCost(bookForEdit.cost);
+      setCost(bookForEdit.price);
     }
   }, [isEdit, bookForEdit]);
 
   const handleSubmit = (e) => {
     e.stopPropagation();
     // Логика для отправки данных на сервер
-    onClose(); // 
+    var bookForEdit = {
+      id: id,
+      title: title,
+      author: author,
+      genre: genre,
+      description: description,
+      price: cost,
+      image: selectedImage
+    }
+
+    editBook(bookForEdit).then((data) => {
+      console.log(data);
+      onClose(); //
+    }).catch((error) => {
+      console.error('Error:', error);
+    });
   };
 
    //Для редактирования изображение в модальном окне
@@ -67,7 +85,8 @@ const ModalEditBook = ({ onClose, isEdit }) => {
 
    useEffect(() => {
     if (isEdit && bookForEdit) {
-      setSelectedImage(bookForEdit.image);
+      const imageUrl = `data:image/png;base64,${bookForEdit.image}`;
+      setSelectedImage(imageUrl);
     }
   }, [isEdit, bookForEdit]);
 

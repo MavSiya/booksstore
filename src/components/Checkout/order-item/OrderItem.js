@@ -5,6 +5,7 @@ import { deleteItemFromCart } from '../../../reducers/cartSlice'
 
 export const OrderItem = ({ book }) => {
     const dispatch = useDispatch();
+    const imageUrl = `data:image/png;base64,${book.image}`;
 
     const handleClick = () => {
         dispatch(deleteItemFromCart(book.articul));
@@ -15,7 +16,7 @@ export const OrderItem = ({ book }) => {
 
             <div className='order-item'>
                 <div className='order-item__cover'>
-                    <img src={book.image} />
+                    <img src={imageUrl} />
                 </div>
 
 
