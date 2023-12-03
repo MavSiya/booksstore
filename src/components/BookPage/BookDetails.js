@@ -14,7 +14,7 @@ const BookDetails = () => {
   const handleClick = (e) => {
     e.stopPropagation();
     if (isItemInCart) {
-      dispatch(deleteItemFromCart(book.articul));
+      dispatch(deleteItemFromCart(book));
     } else {
       dispatch(setItemInCart(book));
     }

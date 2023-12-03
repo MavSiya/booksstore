@@ -8,7 +8,7 @@ export default function CartList({ items, onClick }) {
   return (
     <div className='cart-list'>
       <div className='cart-list__books-list'>
-        {items.length > 0 ? items.map((book) => <CartItem key={book.articul} title={book.title} price={book.cost} articul={book.articul} />) : (
+        {items.length > 0 ? items.map((book) => <CartItem key={book.id} title={book.title} price={book.price} articul={book.id} />) : (
           <p>Корзина пуста</p>
         )}
       </div>

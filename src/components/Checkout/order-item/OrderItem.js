@@ -8,7 +8,7 @@ export const OrderItem = ({ book }) => {
     const imageUrl = `data:image/png;base64,${book.image}`;
 
     const handleClick = () => {
-        dispatch(deleteItemFromCart(book.articul));
+        dispatch(deleteItemFromCart(book));
     };
 
     return (
@@ -29,7 +29,7 @@ export const OrderItem = ({ book }) => {
                     </div>
                 </div>
                 <div className='order-item__price'>
-                    <span>{book.cost} грн.</span>
+                    <span>{book.price} грн.</span>
                     <img src='./img/delete.svg' className='cart-item__delete-icon' onClick={handleClick} />
                 </div>
             </div>

@@ -6,7 +6,7 @@ import './BooksCard.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import React, { useEffect } from 'react'
-import { getCurrentUserInfo } from '../../http/userAPI';
+import {extractRoleFromToken, getCurrentUserInfo} from '../../http/userAPI';
 import { openEditModal } from '../../reducers/modalAddReducer';
 import ModalEditBook from '../littlePiece/ModalEditBook';
 
@@ -25,7 +25,7 @@ function Books(props) {
   const handleClick = (e) => {
     e.stopPropagation();
     if (isItemInCart) {
-      dispatch(deleteItemFromCart(props.id));
+      dispatch(deleteItemFromCart(props));
     } else {
       dispatch(setItemInCart(props));
     }
@@ -47,8 +47,8 @@ function Books(props) {
     }
   };
 
-  const role = 'SELLER'; // поставить нужный код
-  const isSeller = true; //надо поменять
+  const role = extractRoleFromToken(localStorage.getItem("token")) // поставить нужный код
+  const isSeller = role === 'SELLER'; //надо поменять
 
   const isEditModalOpen = useSelector((state) => state.modalAdd.isEditModalOpen);
   const handleEditClick = (e) => {
@@ -74,7 +74,7 @@ function Books(props) {
           </div>
           <div className="info-sale">
             <div className="cost-to-basket">
-              <p className="cost">{props.cost} грн</p>
+              <p className="cost">{props.price} грн</p>
               <div className='add-to-block'>
                 <button className="add-to-favorites" data-key={props.id} onClick={handleFavoritesClick}>
                   {isItemInFavorites ? <img src="./img/heartClicked.svg" alt="Додано в збережені" /> : <img src="./img/heart.svg" alt="В збережені" />}
