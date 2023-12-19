@@ -84,7 +84,7 @@ export default function CatalogPiece() {
           <Modal onClose={handleCloseModal}>
             <div className="genre-filter-modal">
               <h3>Выберите жанр</h3>
-              <label> <input type="radio" value="advanture" checked={selectedGenre === 'advanture'}
+              <label> <input type="radio" value="Advanture" checked={selectedGenre === 'Advanture'}
                              onChange={handleGenreChange}/>
                 Пригоди
               </label>
@@ -100,7 +100,7 @@ export default function CatalogPiece() {
                              onChange={handleGenreChange}/>
                 Наукова фантастика
               </label>
-              <label> <input type="radio" value="fantasy" checked={selectedGenre === 'fantasy'}
+              <label> <input type="radio" value="Fantasy" checked={selectedGenre === 'Fantasy'}
                              onChange={handleGenreChange}/>
                 Фентезі
               </label>
@@ -131,6 +131,7 @@ export default function CatalogPiece() {
             id={item.id}
             description={item.description}
             key={item.key}
+            comments={item.comments}
           />
         ))}
       </div>

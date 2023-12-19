@@ -42,14 +42,14 @@ export default function InfoSeller() {
     <div className="label">Номер телефону:</div>
     <div class="info">+1234567890</div>
   </div>
-  <div class="row">
-    <div class="label">Історія покупок:</div>
-    <div class="info">...</div>
-  </div>
-  <div class="row">
-    <div class="label">Історія продажу:</div>
-    <div class="info">...</div>
-  </div>
+  {/*<div class="row">*/}
+  {/*  <div class="label">Історія покупок:</div>*/}
+  {/*  <div class="info">...</div>*/}
+  {/*</div>*/}
+  {/*<div class="row">*/}
+  {/*  <div class="label">Історія продажу:</div>*/}
+  {/*  <div class="info">...</div>*/}
+  {/*</div>*/}
 </div>
     </>
   )

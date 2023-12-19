@@ -169,6 +169,53 @@ export const getAllBooks = async (reqName, reqParam) => {
   }
 }
 
+export const getCommentsByBookId = async (bookId) => {
+
+}
+
+export const addComment = async (bookId ,comment) => {
+  try {
+    var token = localStorage.getItem('token');
+    if (token == null)
+      return null;
+
+    var request = `http://localhost:8080/api/v1/books/comments`;
+
+    const response = await axios.post(request, {
+      bookId: bookId,
+      comment: comment
+    }, {
+      headers: {
+        "Authorization": "Bearer " + token,
+      }
+    });
+
+    return response;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+export const deleteCommentByBookId = async (commentId) => {
+  try {
+    var token = localStorage.getItem('token');
+    if (token == null)
+      return null;
+
+    var request = `http://localhost:8080/api/v1/books/comments/${commentId}`;
+
+    const response = await axios.delete(request, {
+      headers: {
+        "Authorization": "Bearer " + token,
+      }
+    });
+
+    return response;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
 export const createOrder = async (orderItem) => {
   const token = localStorage.getItem('token');
   if (token == null)
@@ -239,3 +286,5 @@ export const createOrder = async (orderItem) => {
 
   return response;
 }
+
+
