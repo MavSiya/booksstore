@@ -100,6 +100,10 @@ export default function GoodsOfSeller() {
                   <option value="Science">Наука</option>
                   <option value="Fantasy">Фентезі</option>
                   <option value="Romance">Романтика</option>
+                  <option value="Horror">Жахи</option>
+                  <option value="Comedy">Комедія</option>
+                  <option value="Psychology">Психологія</option>
+                  <option value="Drama">Драма</option>
                 </select>
               </div>
 

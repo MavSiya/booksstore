@@ -160,22 +160,22 @@ export const Checkout = () => {
 
                     <div className='checkout-page__expirationDate-cvv'>
 
-                      <div className="checkout-page__form-block">
+                      <div className="checkout-page__form-block cvv">
                         <label htmlFor="expirationYear">Рік закінчення</label>
-                        <input className="input-reg" type="text" id="expirationYear" name="expirationYear"
-                               placeholder="Введіть дату закінчення..."/>
+                        <input  className="input-reg" type="text" id="expirationYear" name="expirationYear"
+                                placeholder="Введіть рік..." pattern="[0-9]*" title="Можна вводити тільки цифри" required/>
                       </div>
                       <br/>
-                      <div className="checkout-page__form-block">
+                      <div className="checkout-page__form-block cvv">
                         <label htmlFor="expirationMonth">Місяць закінчення:</label>
-                        <input
-                          className="input-reg" type="text" id="expirationMonth" name="expirationMonth"
-                          placeholder="Введіть дату закінчення..."/>
+                        <input  className="input-reg" type="text" id="expirationMonth" name="expirationMonth"
+                                placeholder="Введіть місяць цифрою..." pattern="[0-9]*" title="Можна вводити тільки цифри" required />
                       </div>
 
-                      <div className="checkout-page__form-block">
+                      <div className="checkout-page__form-block cvv">
                         <label htmlFor="cvv">CVV:</label>
-                        <input className="input-reg" type="text" id="cvv" name="cvv" placeholder="Введіть CVV..."/>
+                        <input  className="input-reg"type="text" id="cvv" name="cvv"
+                                placeholder="Введіть CVV..." pattern="[0-9]*" title="Можна вводити тільки цифри" required/>
                       </div>
                     </div>
                   </>

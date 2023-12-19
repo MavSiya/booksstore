@@ -1,13 +1,13 @@
-import { setCurrentBook } from '../../reducers/booksSlice';
-import { useNavigate } from 'react-router-dom';
-import { deleteItemFromCart, setItemInCart } from '../../reducers/cartSlice';
-import { setItemInFavorites, deleteItemFromFavorites } from '../../reducers/favoritesSlice'
+import {setCurrentBook} from '../../reducers/booksSlice';
+import {useNavigate} from 'react-router-dom';
+import {deleteItemFromCart, setItemInCart} from '../../reducers/cartSlice';
+import {setItemInFavorites, deleteItemFromFavorites} from '../../reducers/favoritesSlice'
 import './BooksCard.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-import React, { useEffect } from 'react'
+import {useDispatch, useSelector} from 'react-redux';
+import {useState} from 'react';
+import React, {useEffect} from 'react'
 import {extractRoleFromToken, getCurrentUserInfo} from '../../http/userAPI';
-import { openEditModal } from '../../reducers/modalAddReducer';
+import {openEditModal} from '../../reducers/modalAddReducer';
 import ModalEditBook from '../littlePiece/ModalEditBook';
 
 //onEdit,
@@ -18,8 +18,8 @@ function Books(props) {
   const isItemInCart = useSelector(state => state.cart.itemsInCart.some(items => items.id === props.id));
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSeller, setIsSeller] = useState(false);
   const imageUrl = `data:image/png;base64,${props.image}`;
-
 
 
   const handleClick = (e) => {
@@ -47,23 +47,31 @@ function Books(props) {
     }
   };
 
-  const role = extractRoleFromToken(localStorage.getItem("token")) // поставить нужный код
-  const isSeller = role === 'SELLER'; //надо поменять
+  useEffect(() => {
+    let token = localStorage.getItem('token');
+    extractRoleFromToken(token).then(
+      (role) => {
+        if (role === 'SELLER') {
+          setIsSeller(true);
+        }
+      }
+    )
+  }, []);
 
-  const isEditModalOpen = useSelector((state) => state.modalAdd.isEditModalOpen);
-  const handleEditClick = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    dispatch(openEditModal(props));
-    setIsModalOpen(true);
+const isEditModalOpen = useSelector((state) => state.modalAdd.isEditModalOpen);
+const handleEditClick = (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  dispatch(openEditModal(props));
+  setIsModalOpen(true);
 
-  };
+};
 
-  return (<>
+return (<>
     <div className='card' onClick={handlerGoToInfo}>
       <div className="books-block">
         <div className="image">
-          <img src={imageUrl} alt="" />
+          <img src={imageUrl} alt=""/>
         </div>
         <div className="block-info">
           <div className="info-book">
@@ -77,19 +85,21 @@ function Books(props) {
               <p className="cost">{props.price} грн</p>
               <div className='add-to-block'>
                 <button className="add-to-favorites" data-key={props.id} onClick={handleFavoritesClick}>
-                  {isItemInFavorites ? <img src="./img/heartClicked.svg" alt="Додано в збережені" /> : <img src="./img/heart.svg" alt="В збережені" />}
+                  {isItemInFavorites ? <img src="./img/heartClicked.svg" alt="Додано в збережені"/> :
+                    <img src="./img/heart.svg" alt="В збережені"/>}
                 </button>
 
                 {isSeller ? (
                   <button className="add-to-cart" onClick={handleEditClick}>
-                    <img src="./img/edit.svg" alt="Редагувати" />
+                    <img src="./img/edit.svg" alt="Редагувати"/>
                   </button>
                 ) : (
                   <button className="add-to-cart" data-key={props.id} onClick={handleClick}>
-                    {isItemInCart ? <img src="./img/delete-line.svg" alt="Удалить" /> : <img src="./img/basketicon.svg" alt="В корзину" />}
+                    {isItemInCart ? <img src="./img/delete-line.svg" alt="Удалить"/> :
+                      <img src="./img/basketicon.svg" alt="В корзину"/>}
                   </button>)}
                 {isModalOpen && (
-                  <ModalEditBook onClose={() => setIsModalOpen(false)} isEdit={true} />
+                  <ModalEditBook onClose={() => setIsModalOpen(false)} isEdit={true}/>
                 )}
               </div>
             </div>
@@ -99,7 +109,7 @@ function Books(props) {
     </div>
 
   </>
-  );
+);
 }
 
 export default Books;
